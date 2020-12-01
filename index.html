@@ -8,10 +8,11 @@
 </body>
 <script type="text/javascript">
 	function setText() {
-		var div = document.getElementById("erdet");
-		var itIs = new Date().getDay() == 3;
+		let vippedag = 3;
+		let yes = new Date().getDay() === vippedag;
+		let div = document.getElementById("erdet");
 
-		div.innerHTML = itIs ? "JA 🙂" : "NEJ 😐";
+		div.innerHTML = yes ? "JA 🙂" : "NEJ 😐";
 	}
 
 	window.addEventListener('load', function() {

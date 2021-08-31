@@ -6,14 +6,31 @@
 <body>
 	<div id="erdet" style="width: 100%; text-align: center; font-size: 4em; font-family: monospace">
 	</div>
+
+	<div id="almost" style="width: 100%; text-align: center; font-size: 1em; font-family: monospace">
+	</div>
 </body>
 <script type="text/javascript">
 	function setText() {
 		let vippedag = 3;
-		let yes = new Date().getDay() === vippedag;
-		let div = document.getElementById("erdet");
+		let day = new Date().getDay();
+		let yes = day === vippedag;
 
-		div.innerHTML = yes ? "JA 🤠" : "NEJ 😐";
+		document.getElementById("erdet").innerHTML = yes ? "JA 🤠" : "NEJ 😐";
+
+		if (window.location.search.indexOf("?men") >= 0) {
+			var texts = {
+				"1": "(men det er mandag, og du har garanteret brug for det)",
+				"2": "(men det er lillevippedag)",
+				"3": "",
+				"4": "(men det er lillefredag)",
+				"5": "(men OMG OMG OMG det er fredag)",
+				"6": "(men det er lørdag)",
+				"7": "(men det er søndag, og du er tørstig)"
+			};
+
+			document.getElementById("almost").innerHTML = texts[day];
+		}
 	}
 
 	window.addEventListener('load', function() {
